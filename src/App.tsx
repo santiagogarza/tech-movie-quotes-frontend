@@ -64,7 +64,7 @@ export default function App() {
     <div className="flex min-h-screen flex-col">
       <header className="px-6 pt-8 sm:px-10 sm:pt-12">
         <div className="font-display text-decade-fg-muted flex items-center justify-between text-xs tracking-[0.3em] uppercase">
-          <span>Best/Worst Tech Quotes</span>
+          <span>Tech Movie Quotes</span>
           <ConnectionPill isConnected={isConnected} quotesPerDecade={quotesPerDecade} />
         </div>
       </header>
