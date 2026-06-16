@@ -80,6 +80,19 @@ export const DECADE_THEMES: Record<Decade, DecadeTheme> = {
     fontDisplay: '"Inter", system-ui, sans-serif',
     fontBody: '"Inter", system-ui, sans-serif',
   },
+  "2020s": {
+    label: "Twenty-Twenties",
+    bgFrom: "#06060a",
+    bgVia: "#150b2e",
+    bgTo: "#2a1259",
+    accent: "#c084fc",
+    accentSoft: "rgba(192, 132, 252, 0.18)",
+    fg: "#f3e8ff",
+    fgMuted: "rgba(243, 232, 255, 0.6)",
+    grid: "rgba(192, 132, 252, 0.06)",
+    fontDisplay: '"Inter", system-ui, sans-serif',
+    fontBody: '"Inter", system-ui, sans-serif',
+  },
 };
 
 export function applyDecadeTheme(decade: Decade): void {

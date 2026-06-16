@@ -22,7 +22,7 @@ export interface UseQuoteRotationResult {
  * decades: advancing past the last quote of a decade jumps to the
  * first quote of the next, and going back from the first quote of a
  * decade lands on the last quote of the previous (with the final
- * 2010s -> 70s wrap closing the loop).
+ * 2020s -> 70s wrap closing the loop).
  */
 export function useQuoteRotation({
   decade,

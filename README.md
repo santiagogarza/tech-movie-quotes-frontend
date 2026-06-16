@@ -1,17 +1,18 @@
 # tech-movie-quotes-frontend
 
 A standalone-capable web UI that cycles cheesy tech-movie quotes by decade
-(70s, 80s, 90s, 2000s, 2010s). The decade picker swaps the visual theme
-(neon-grid 80s, lime-on-black 90s hacker terminal, etc.) and the quote
-fades from one movie to the next every ~7 seconds.
+(70s, 80s, 90s, 2000s, 2010s, 2020s). The decade picker swaps the visual
+theme (neon-grid 80s, lime-on-black 90s hacker terminal, electric-violet
+neural 2020s, etc.) and the quote fades from one movie to the next every
+~7 seconds.
 
 This is the **frontend** half of a two-repo demo. It runs and looks great
 on its own; if the companion backend
 [tech-movie-quotes-backend](https://github.com/santiagogarza/tech-movie-quotes-backend)
 is also running on `http://localhost:8787`, the catalog expands from
-5 quotes per decade to 15 and the film **year** appears next to each
-movie title. A small pill in the bottom-right corner tells you which
-mode is active.
+5 quotes per decade to 15 (across all 6 decades, 30 → 90 total) and the
+film **year** appears next to each movie title. A small pill in the
+bottom-right corner tells you which mode is active.
 
 ## What it shows
 
@@ -55,9 +56,9 @@ cp .env.example .env.local
 ## Standalone vs. connected
 
 The local catalog lives in [`src/data/quotes.ts`](src/data/quotes.ts) —
-5 quotes per decade, 25 total. These are the same quotes the backend
-returns as its first 5 per decade, so toggling between standalone and
-connected feels continuous. When the backend is reachable, the app
+5 quotes per decade, 30 total. These are the same quotes the backend
+returns as a subset of its 15 per decade, so toggling between standalone
+and connected feels continuous. When the backend is reachable, the app
 pulls the full 15 per decade and starts showing the release year next
 to each movie title.
 

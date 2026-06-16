@@ -102,4 +102,21 @@ export const LOCAL_QUOTES: Record<Decade, Quote[]> = {
       quote: "I'm gonna have to science the shit out of this.",
     },
   ],
+  "2020s": [
+    { decade: "2020s", year: 2021, movie: "Free Guy", quote: "Don't have a good day. Have a great day." },
+    {
+      decade: "2020s",
+      year: 2021,
+      movie: "The Matrix Resurrections",
+      quote: "I still know kung fu.",
+    },
+    { decade: "2020s", year: 2021, movie: "Dune", quote: "Fear is the mind-killer." },
+    { decade: "2020s", year: 2022, movie: "M3GAN", quote: "M3GAN, that's enough." },
+    {
+      decade: "2020s",
+      year: 2024,
+      movie: "The Wild Robot",
+      quote: "Sometimes to survive, we must become more than we were programmed to be.",
+    },
+  ],
 };
