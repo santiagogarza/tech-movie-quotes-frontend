@@ -2,6 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
+@property --decade-bg-from {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #0b0b16;
+}
+@property --decade-bg-via {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #1a0b2e;
+}
+@property --decade-bg-to {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #16213e;
+}
+@property --decade-accent {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #ff00ff;
+}
+@property --decade-fg {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #f5f5ff;
+}
+
 :root {
   --decade-bg-from: #0b0b16;
   --decade-bg-via: #1a0b2e;
@@ -25,29 +51,76 @@ body {
   margin: 0;
   color: var(--decade-fg);
   font-family: var(--decade-font-body);
-  background:
-    radial-gradient(circle at 20% 20%, var(--decade-bg-via), transparent 50%),
-    radial-gradient(circle at 80% 80%, var(--decade-bg-to), transparent 60%),
-    var(--decade-bg-from);
-  background-attachment: fixed;
+  background-color: var(--decade-bg-from);
   transition:
-    background 600ms ease,
-    color 600ms ease;
+    --decade-bg-from 700ms ease,
+    --decade-bg-via 700ms ease,
+    --decade-bg-to 700ms ease,
+    --decade-accent 700ms ease,
+    --decade-fg 700ms ease,
+    background-color 700ms ease,
+    color 700ms ease;
   overflow: hidden;
 }
 
+/* Soft, slowly drifting nebula orbs. Two layers move out of phase so the
+   page never feels static; the motion is below the threshold of distraction. */
 body::before {
   content: "";
   position: fixed;
+  inset: -20%;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      circle at 30% 30%,
+      var(--decade-bg-via) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      circle at 70% 70%,
+      var(--decade-bg-to) 0%,
+      transparent 60%
+    );
+  animation: nebula-drift 75s ease-in-out infinite;
+  will-change: transform;
+}
+
+body::after {
+  content: "";
+  position: fixed;
   inset: 0;
+  z-index: -1;
+  pointer-events: none;
   background-image:
     linear-gradient(var(--decade-grid) 1px, transparent 1px),
     linear-gradient(90deg, var(--decade-grid) 1px, transparent 1px);
   background-size: 48px 48px;
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.6;
-  transition: opacity 600ms ease;
+  opacity: 0.55;
+}
+
+@keyframes nebula-drift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  25% {
+    transform: translate3d(3%, -2%, 0) scale(1.04);
+  }
+  50% {
+    transform: translate3d(-2%, 3%, 0) scale(1.02);
+  }
+  75% {
+    transform: translate3d(-3%, -2%, 0) scale(1.05);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::before {
+    animation: none;
+  }
 }
 
 #root {
@@ -85,17 +158,4 @@ body::before {
 
 .text-decade-fg-muted {
   color: var(--decade-fg-muted);
-}
-
-.quote-enter {
-  opacity: 0;
-  transform: translateY(8px);
-}
-
-.quote-enter-active {
-  opacity: 1;
-  transform: translateY(0);
-  transition:
-    opacity 500ms ease,
-    transform 500ms ease;
 }

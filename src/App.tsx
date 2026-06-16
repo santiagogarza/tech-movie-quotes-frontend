@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { ConnectionPill } from "./components/ConnectionPill";
 import { DecadeSwitcher } from "./components/DecadeSwitcher";
 import { QuoteStage } from "./components/QuoteStage";
-import { useQuoteCycle } from "./hooks/useQuoteCycle";
-import { useQuotes } from "./hooks/useQuotes";
-import { DEFAULT_DECADE, isDecade, type Decade } from "./lib/types";
+import { useCatalog } from "./hooks/useCatalog";
+import { useQuoteRotation } from "./hooks/useQuoteRotation";
+import { DECADES, DEFAULT_DECADE, isDecade, type Decade } from "./lib/types";
 import { applyDecadeTheme, DECADE_THEMES } from "./theme/decades";
 
 const STORAGE_KEY = "tech-movie-quotes:decade";
@@ -17,13 +17,48 @@ function readStoredDecade(): Decade {
 
 export default function App() {
   const [decade, setDecade] = useState<Decade>(readStoredDecade);
-  const { quotes, source, isConnected, quotesPerDecade } = useQuotes(decade);
-  const cycle = useQuoteCycle(quotes);
+  const { catalog, source, isConnected, quotesPerDecade } = useCatalog();
+  const rotation = useQuoteRotation({ decade, setDecade, catalog });
 
   useEffect(() => {
     applyDecadeTheme(decade);
     window.localStorage.setItem(STORAGE_KEY, decade);
   }, [decade]);
+
+  useEffect(() => {
+    const handler = (event: KeyboardEvent) => {
+      const tag = (event.target as HTMLElement | null)?.tagName;
+      if (tag === "INPUT" || tag === "TEXTAREA") return;
+      switch (event.key) {
+        case "ArrowRight": {
+          event.preventDefault();
+          const i = DECADES.indexOf(decade);
+          setDecade(DECADES[(i + 1) % DECADES.length]);
+          return;
+        }
+        case "ArrowLeft": {
+          event.preventDefault();
+          const i = DECADES.indexOf(decade);
+          setDecade(DECADES[(i - 1 + DECADES.length) % DECADES.length]);
+          return;
+        }
+        case "ArrowDown": {
+          event.preventDefault();
+          rotation.next();
+          return;
+        }
+        case "ArrowUp": {
+          event.preventDefault();
+          rotation.prev();
+          return;
+        }
+        default:
+          return;
+      }
+    };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [decade, rotation]);
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -36,17 +71,12 @@ export default function App() {
 
       <main className="flex flex-1 flex-col items-center justify-center gap-12 px-6 py-12 sm:px-10">
         <QuoteStage
-          quote={cycle.current}
+          quote={rotation.current}
           source={source}
-          index={cycle.index}
-          total={cycle.total}
+          index={rotation.index}
+          total={rotation.total}
         />
-        <div className="flex flex-col items-center gap-4">
-          <DecadeSwitcher value={decade} onChange={setDecade} />
-          <p className="font-display text-decade-fg-muted text-[10px] tracking-[0.3em] uppercase">
-            Use arrow keys to switch decades
-          </p>
-        </div>
+        <DecadeSwitcher value={decade} onChange={setDecade} />
       </main>
 
       <footer className="px-6 pb-6 sm:px-10">

@@ -10,7 +10,7 @@ export const LOCAL_QUOTES: Record<Decade, Quote[]> = {
   "70s": [
     { decade: "70s", year: 1973, movie: "Westworld", quote: "Nothing can possibly go wrong." },
     { decade: "70s", year: 1973, movie: "Soylent Green", quote: "Soylent Green is people!" },
-    { decade: "70s", year: 1976, movie: "Logan's Run", quote: "There is no sanctuary." },
+    { decade: "70s", year: 1977, movie: "Demon Seed", quote: "I am Proteus IV." },
     {
       decade: "70s",
       year: 1977,
@@ -20,13 +20,13 @@ export const LOCAL_QUOTES: Record<Decade, Quote[]> = {
     {
       decade: "70s",
       year: 1979,
-      movie: "Alien",
-      quote: "In space, no one can hear you scream.",
+      movie: "The Black Hole",
+      quote: "What a magnificent example of man's mechanical ingenuity!",
     },
   ],
   "80s": [
     { decade: "80s", year: 1982, movie: "Tron", quote: "Greetings, programs!" },
-    { decade: "80s", year: 1983, movie: "WarGames", quote: "Shall we play a game?" },
+    { decade: "80s", year: 1983, movie: "WarGames", quote: "The only winning move is not to play." },
     { decade: "80s", year: 1984, movie: "The Terminator", quote: "I'll be back." },
     {
       decade: "80s",
@@ -34,25 +34,40 @@ export const LOCAL_QUOTES: Record<Decade, Quote[]> = {
       movie: "Back to the Future",
       quote: "Roads? Where we're going, we don't need roads.",
     },
-    { decade: "80s", year: 1986, movie: "Short Circuit", quote: "Number Five is alive!" },
+    { decade: "80s", year: 1986, movie: "Short Circuit", quote: "Need input!" },
   ],
   "90s": [
-    { decade: "90s", year: 1991, movie: "Terminator 2", quote: "Hasta la vista, baby." },
-    { decade: "90s", year: 1992, movie: "Sneakers", quote: "Too many secrets." },
+    { decade: "90s", year: 1991, movie: "Terminator 2: Judgment Day", quote: "Hasta la vista, baby." },
+    {
+      decade: "90s",
+      year: 1992,
+      movie: "Sneakers",
+      quote: "My voice is my passport. Verify me.",
+    },
     { decade: "90s", year: 1993, movie: "Jurassic Park", quote: "Hold onto your butts." },
     { decade: "90s", year: 1995, movie: "Hackers", quote: "Hack the planet!" },
     { decade: "90s", year: 1999, movie: "The Matrix", quote: "There is no spoon." },
   ],
   "2000s": [
-    { decade: "2000s", year: 2002, movie: "Minority Report", quote: "Everybody runs." },
+    {
+      decade: "2000s",
+      year: 2002,
+      movie: "Spider-Man",
+      quote: "With great power comes great responsibility.",
+    },
     {
       decade: "2000s",
       year: 2004,
       movie: "I, Robot",
-      quote: "You are experiencing a car accident.",
+      quote: "You are the dumbest smart person I have ever met.",
     },
     { decade: "2000s", year: 2005, movie: "Serenity", quote: "I aim to misbehave." },
-    { decade: "2000s", year: 2008, movie: "Iron Man", quote: "I am Iron Man." },
+    {
+      decade: "2000s",
+      year: 2008,
+      movie: "Iron Man",
+      quote: "Genius, billionaire, playboy, philanthropist.",
+    },
     { decade: "2000s", year: 2009, movie: "Avatar", quote: "I see you." },
   ],
   "2010s": [

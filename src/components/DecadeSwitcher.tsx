@@ -1,4 +1,3 @@
-import { useEffect, useRef } from "react";
 import { DECADES, type Decade } from "../lib/types";
 
 interface DecadeSwitcherProps {
@@ -7,28 +6,8 @@ interface DecadeSwitcherProps {
 }
 
 export function DecadeSwitcher({ value, onChange }: DecadeSwitcherProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handler = (event: KeyboardEvent) => {
-      const target = event.target as HTMLElement | null;
-      if (target && target.tagName === "INPUT") return;
-      const idx = DECADES.indexOf(value);
-      if (event.key === "ArrowRight") {
-        event.preventDefault();
-        onChange(DECADES[(idx + 1) % DECADES.length]);
-      } else if (event.key === "ArrowLeft") {
-        event.preventDefault();
-        onChange(DECADES[(idx - 1 + DECADES.length) % DECADES.length]);
-      }
-    };
-    window.addEventListener("keydown", handler);
-    return () => window.removeEventListener("keydown", handler);
-  }, [value, onChange]);
-
   return (
     <div
-      ref={containerRef}
       role="radiogroup"
       aria-label="Choose a decade"
       className="flex flex-wrap items-center justify-center gap-2 sm:gap-3"
