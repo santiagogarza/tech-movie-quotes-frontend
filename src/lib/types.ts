@@ -4,6 +4,8 @@ export type Decade = (typeof DECADES)[number];
 
 export const DEFAULT_DECADE: Decade = "90s";
 
+export const CYCLE_INTERVAL_MS = 7000;
+
 export interface Quote {
   quote: string;
   movie: string;

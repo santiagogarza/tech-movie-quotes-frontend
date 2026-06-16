@@ -1,7 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { DECADES, type Decade, type Quote } from "../lib/types";
-
-const CYCLE_INTERVAL_MS = 7000;
+import { CYCLE_INTERVAL_MS, DECADES, type Decade, type Quote } from "../lib/types";
 
 export interface UseQuoteRotationParams {
   decade: Decade;

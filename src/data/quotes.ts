@@ -10,7 +10,12 @@ export const LOCAL_QUOTES: Record<Decade, Quote[]> = {
   "70s": [
     { decade: "70s", year: 1973, movie: "Westworld", quote: "Nothing can possibly go wrong." },
     { decade: "70s", year: 1973, movie: "Soylent Green", quote: "Soylent Green is people!" },
-    { decade: "70s", year: 1977, movie: "Demon Seed", quote: "I am Proteus IV." },
+    {
+      decade: "70s",
+      year: 1977,
+      movie: "Close Encounters of the Third Kind",
+      quote: "We are not alone.",
+    },
     {
       decade: "70s",
       year: 1977,
@@ -68,7 +73,7 @@ export const LOCAL_QUOTES: Record<Decade, Quote[]> = {
       movie: "Iron Man",
       quote: "Genius, billionaire, playboy, philanthropist.",
     },
-    { decade: "2000s", year: 2009, movie: "Avatar", quote: "I see you." },
+    { decade: "2000s", year: 2009, movie: "Star Trek", quote: "Live long and prosper." },
   ],
   "2010s": [
     { decade: "2010s", year: 2010, movie: "Tron: Legacy", quote: "It's bio-digital jazz, man." },

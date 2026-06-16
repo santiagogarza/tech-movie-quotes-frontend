@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
 import type { Quote, QuoteSource } from "../lib/types";
+import { CycleProgressBar } from "./CycleProgressBar";
 
 interface QuoteStageProps {
   quote: Quote | null;
   source: QuoteSource;
   index: number;
   total: number;
+  cycleKey: string;
 }
 
-export function QuoteStage({ quote, source, index, total }: QuoteStageProps) {
+export function QuoteStage({ quote, source, index, total, cycleKey }: QuoteStageProps) {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -51,6 +53,7 @@ export function QuoteStage({ quote, source, index, total }: QuoteStageProps) {
         <div className="font-display text-decade-fg-muted text-xs tracking-[0.3em] uppercase">
           {String(index + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
         </div>
+        <CycleProgressBar cycleKey={cycleKey} />
       </figcaption>
     </figure>
   );

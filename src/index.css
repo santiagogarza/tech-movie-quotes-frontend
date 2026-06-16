@@ -117,9 +117,21 @@ body::after {
   }
 }
 
+@keyframes cycle-fill {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   body::before {
     animation: none;
+  }
+  .cycle-progress-track {
+    visibility: hidden;
   }
 }
 
