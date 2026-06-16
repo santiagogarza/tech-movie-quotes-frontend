@@ -5,7 +5,7 @@ import { QuoteStage } from "./components/QuoteStage";
 import { useCatalog } from "./hooks/useCatalog";
 import { useQuoteRotation } from "./hooks/useQuoteRotation";
 import { DECADES, DEFAULT_DECADE, isDecade, type Decade } from "./lib/types";
-import { applyDecadeTheme, DECADE_THEMES } from "./theme/decades";
+import { applyDecadeTheme } from "./theme/decades";
 
 const STORAGE_KEY = "tech-movie-quotes:decade";
 
@@ -65,7 +65,7 @@ export default function App() {
       <header className="px-6 pt-8 sm:px-10 sm:pt-12">
         <div className="font-display text-decade-fg-muted flex items-center justify-between text-xs tracking-[0.3em] uppercase">
           <span>Tech Movie Quotes</span>
-          <span aria-hidden>{DECADE_THEMES[decade].label}</span>
+          <ConnectionPill isConnected={isConnected} quotesPerDecade={quotesPerDecade} />
         </div>
       </header>
 
@@ -86,8 +86,6 @@ export default function App() {
             : `Local catalog: ${quotesPerDecade} quotes per decade`}
         </p>
       </footer>
-
-      <ConnectionPill isConnected={isConnected} quotesPerDecade={quotesPerDecade} />
     </div>
   );
 }
