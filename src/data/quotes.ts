@@ -2,7 +2,7 @@ import type { Decade, Quote } from "../lib/types";
 
 /**
  * Baseline catalog used when the optional backend is not reachable.
- * 5 quotes per decade, 25 total. The backend (when running) returns
+ * 5 quotes per decade, 30 total. The backend (when running) returns
  * 15 per decade including these as a subset, so the demo feels continuous
  * when you start the backend mid-session.
  */
@@ -101,5 +101,27 @@ export const LOCAL_QUOTES: Record<Decade, Quote[]> = {
       movie: "The Martian",
       quote: "I'm gonna have to science the shit out of this.",
     },
+  ],
+  "2020s": [
+    {
+      decade: "2020s",
+      year: 2020,
+      movie: "Tenet",
+      quote: "Don't try to understand it. Feel it.",
+    },
+    {
+      decade: "2020s",
+      year: 2021,
+      movie: "Free Guy",
+      quote: "Don't have a good day, have a great day.",
+    },
+    {
+      decade: "2020s",
+      year: 2021,
+      movie: "The Matrix Resurrections",
+      quote: "I still know kung fu.",
+    },
+    { decade: "2020s", year: 2022, movie: "M3GAN", quote: "It's time to play." },
+    { decade: "2020s", year: 2023, movie: "The Creator", quote: "You can't kill an idea." },
   ],
 };

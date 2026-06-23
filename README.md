@@ -1,7 +1,7 @@
 # tech-movie-quotes-frontend
 
 A standalone-capable web UI that cycles cheesy tech-movie quotes by decade
-(70s, 80s, 90s, 2000s, 2010s). The decade picker swaps the visual theme
+(70s, 80s, 90s, 2000s, 2010s, 2020s). The decade picker swaps the visual theme
 (neon-grid 80s, lime-on-black 90s hacker terminal, etc.) and the quote
 fades from one movie to the next every ~7 seconds.
 
@@ -55,7 +55,7 @@ cp .env.example .env.local
 ## Standalone vs. connected
 
 The local catalog lives in [`src/data/quotes.ts`](src/data/quotes.ts) —
-5 quotes per decade, 25 total. These are the same quotes the backend
+5 quotes per decade, 30 total. These are the same quotes the backend
 returns as its first 5 per decade, so toggling between standalone and
 connected feels continuous. When the backend is reachable, the app
 pulls the full 15 per decade and starts showing the release year next
